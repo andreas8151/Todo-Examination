@@ -1,0 +1,52 @@
+h1 {
+  font-weight: 500;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.354);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  margin-top: 15vh;
+}
+
+label {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.callBackResult {
+  text-align: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  padding: 22px;
+}
+
+.button {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #2d6f23cf;
+  margin: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #285d1fde;
+}
+
+.registerButton {
+  background-color: rgba(0, 0, 0, 0.264);
+}
