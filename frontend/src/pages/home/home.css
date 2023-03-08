@@ -1,0 +1,63 @@
+.homeContainer {
+  margin: 0 auto;
+}
+
+.todoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2vh;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(250, 235, 215, 0.334);
+  border-radius: 10px;
+  padding: 1vh;
+  width: 20vh;
+}
+
+.todo small {
+  font-size: 0.9em;
+  color: #693434;
+}
+
+h4 {
+  margin: 0;
+  color: #3d1f1f;
+}
+
+button {
+  background-color: rgba(250, 235, 215, 0.334);
+  border-radius: 10px;
+  padding: 1vh;
+  width: 20vh;
+  margin: 2vh 0 0;
+  border: none;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #af5f5f;
+  color: white;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #693434;
+  background-color: rgba(255, 255, 255, 0.334);
+  border-radius: 10px;
+  padding: 1vh;
+  margin: 1vh;
+  transition: 0.3s;
+}
+
+input:hover {
+  background-color: rgba(255, 255, 255, 0.534);
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.89);
+  outline: none;
+}

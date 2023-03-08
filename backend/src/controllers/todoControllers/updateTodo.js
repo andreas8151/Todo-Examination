@@ -1,7 +1,7 @@
 const pool = require("../../server");
 const { validateAddTodo } = require("./validation/todoAddValidation");
 
-function addTodo(req, res) {
+function updateTodo(req, res) {
   const { error, value } = validateAddTodo(req.body);
   const userId = req.cookies.user_id;
 
@@ -15,20 +15,17 @@ function addTodo(req, res) {
   }
 
   const { todoTitle, description } = value;
+  const { ID } = req.body;
 
-  const sql =
-    "INSERT INTO todos (user_id, title, description) VALUES (?, ?, ?)";
-  pool.execute(sql, [userId, todoTitle, description], (err, result) => {
+  const sql = "UPDATE todos SET title = ?, description = ? WHERE ID = ?";
+  pool.execute(sql, [todoTitle, description, ID], (err, result) => {
     if (err) {
-      res.status(500).send("Error in server" + err);
+      res.status(500).json({ error: "Error in server: " + err });
       return;
-    }
-    if (result.affectedRows > 0) {
-      res.send("Success");
     } else {
-      //cookie gått ut??????????
+      res.status(200).send("Update Successfully");
     }
   });
 }
 
-module.exports = { addTodo };
+module.exports = { updateTodo };

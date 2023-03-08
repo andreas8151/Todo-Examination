@@ -1,16 +1,18 @@
-export const addTodoSubmitHandler = async function addTodoHandler(
+export const updateTodoHandler = async function updateTodo(
+  ID,
   todoTitle,
   description
 ) {
   try {
-    const data = await fetch(`http://localhost:5050/todo/addTodo`, {
-      method: "POST",
+    const data = await fetch(`http://localhost:5050/todo/updateTodo`, {
+      credentials: "include", //include cookies
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         todoTitle,
         description,
+        ID,
       }),
-      credentials: "include", //include cookies
     });
 
     const responseText = await data.text();

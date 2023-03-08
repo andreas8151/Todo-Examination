@@ -4,7 +4,7 @@ const joi = require("joi");
 // Schema
 const authSchema = joi.object({
   todoTitle: joi.string().min(1).max(30).required(),
-  description: joi.string().min(3).max(30).required(),
+  description: joi.string().min(1).max(30).required(),
 });
 
 // Validation functions

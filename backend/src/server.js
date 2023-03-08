@@ -32,18 +32,6 @@ const dataBase = {
 const pool = mysql.createPool(dataBase);
 module.exports = pool;
 
-app.get("/", (req, res) => {
-  const sql = "SELECT * from users";
-
-  pool.execute(sql, (err, result) => {
-    if (err) {
-      res.sendStatus(404);
-    } else {
-      res.status(200).send(result);
-    }
-  });
-});
-
 const { authRoutes } = require("./routes/authRoute/authRoute");
 const { todoRoutes } = require("./routes/todoRoute/todoRoute");
 
