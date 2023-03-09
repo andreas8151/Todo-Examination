@@ -1,7 +1,7 @@
-export async function deleteTodo(ID) {
+export async function toggleCompletion(ID) {
   try {
-    const data = await fetch(`http://localhost:5050/todo/deleteTodo`, {
-      method: "DELETE",
+    const data = await fetch(`http://localhost:5050/todo/todoDone`, {
+      method: "POST",
       credentials: "include", //include cookies
       headers: {
         "Content-Type": "application/json",
@@ -9,9 +9,9 @@ export async function deleteTodo(ID) {
       body: JSON.stringify({ ID }),
     });
 
-    const responseText = await data.text();
+    const responseNumber = await data.text();
 
-    return responseText;
+    return responseNumber;
   } catch (error) {
     const res = error.response.data;
     return res;

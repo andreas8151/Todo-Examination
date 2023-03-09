@@ -1,5 +1,5 @@
-export const addTodoSubmitHandler = async function addTodoHandler(
-  todoTitle,
+export const addTodoSubmitHandler = async function addTodoSubmitHandle(
+  title,
   description
 ) {
   try {
@@ -7,18 +7,13 @@ export const addTodoSubmitHandler = async function addTodoHandler(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        todoTitle,
+        title,
         description,
       }),
       credentials: "include", //include cookies
     });
 
     const responseText = await data.text();
-
-    if (data.status === 200) {
-      window.location.href = "/loggedIn";
-      return responseText;
-    }
     return responseText;
   } catch (error) {
     const res = error.response.data;

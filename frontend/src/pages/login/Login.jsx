@@ -1,9 +1,10 @@
 import Form from "../../components/form/Form";
 import { logInSubmitHandler } from "./loginSubmitHandler";
+import "./login.css";
 
 function Login() {
   return (
-    <div>
+    <div className="logInContainer">
       <Form
         title="Login"
         buttonTitleOne="Login"

@@ -1,9 +1,10 @@
 import Form from "../../components/form/Form";
 import { registerSubmitHandler } from "./registerSubmitHandler";
+import "./register.css";
 
 function Register() {
   return (
-    <div>
+    <div className="registerContainer">
       {" "}
       <Form
         title="Register"

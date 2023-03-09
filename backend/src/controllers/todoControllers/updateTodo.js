@@ -14,11 +14,11 @@ function updateTodo(req, res) {
     return;
   }
 
-  const { todoTitle, description } = value;
+  const { title, description } = value;
   const { ID } = req.body;
 
   const sql = "UPDATE todos SET title = ?, description = ? WHERE ID = ?";
-  pool.execute(sql, [todoTitle, description, ID], (err, result) => {
+  pool.execute(sql, [title, description, ID], (err, result) => {
     if (err) {
       res.status(500).json({ error: "Error in server: " + err });
       return;

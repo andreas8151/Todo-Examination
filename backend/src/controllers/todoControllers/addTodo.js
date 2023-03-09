@@ -14,11 +14,11 @@ function addTodo(req, res) {
     return;
   }
 
-  const { todoTitle, description } = value;
+  const { title, description } = value;
 
   const sql =
     "INSERT INTO todos (user_id, title, description) VALUES (?, ?, ?)";
-  pool.execute(sql, [userId, todoTitle, description], (err, result) => {
+  pool.execute(sql, [userId, title, description], (err, result) => {
     if (err) {
       res.status(500).send("Error in server" + err);
       return;
