@@ -12,7 +12,6 @@ export async function updateTodo(ID, title, description) {
     });
 
     const responseText = await data.text();
-
     return responseText;
   } catch (error) {
     const res = error.response.data;

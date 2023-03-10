@@ -46,7 +46,7 @@ function Form({
             </button>
           </Link>
         </form>{" "}
-        <small className="callBackResult">{callbackResult}</small>
+        <p className="callBackResult">{callbackResult}</p>
       </div>
     </>
   );

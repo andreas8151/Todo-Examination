@@ -28,7 +28,7 @@ function login(req, res) {
         res.cookie("user_id", userId, {
           maxAge: 10 * 360000,
           sameSite: "none",
-           secure: true, 
+          secure: true,
           httpOnly: true,
         });
         res.status(200).send("login success!");

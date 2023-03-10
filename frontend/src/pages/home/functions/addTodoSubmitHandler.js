@@ -1,7 +1,4 @@
-export const addTodoSubmitHandler = async function addTodoSubmitHandle(
-  title,
-  description
-) {
+export async function addTodoSubmitHandler(title, description) {
   try {
     const data = await fetch(`http://localhost:5050/todo/addTodo`, {
       method: "POST",
@@ -19,4 +16,4 @@ export const addTodoSubmitHandler = async function addTodoSubmitHandle(
     const res = error.response.data;
     return res;
   }
-};
+}

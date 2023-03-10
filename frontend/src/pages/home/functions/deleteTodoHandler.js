@@ -10,7 +10,6 @@ export async function deleteTodo(ID) {
     });
 
     const responseText = await data.text();
-
     return responseText;
   } catch (error) {
     const res = error.response.data;

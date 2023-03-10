@@ -1,7 +1,4 @@
-export const logInSubmitHandler = async function logInSubmitHandle(
-  username,
-  password
-) {
+export async function logInSubmitHandler(username, password) {
   try {
     const data = await fetch(`http://localhost:5050/auth/login`, {
       method: "POST",
@@ -24,4 +21,4 @@ export const logInSubmitHandler = async function logInSubmitHandle(
     const res = error.response.data;
     return res;
   }
-};
+}

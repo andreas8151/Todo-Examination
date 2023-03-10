@@ -10,7 +10,6 @@ export async function toggleCompletion(ID) {
     });
 
     const responseNumber = await data.text();
-
     return responseNumber;
   } catch (error) {
     const res = error.response.data;

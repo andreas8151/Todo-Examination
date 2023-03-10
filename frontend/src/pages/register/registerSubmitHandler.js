@@ -1,7 +1,4 @@
-export const registerSubmitHandler = async function registerSubmitHandle(
-  username,
-  password
-) {
+export async function registerSubmitHandler(username, password) {
   try {
     const data = await fetch(`http://localhost:5050/auth/register`, {
       method: "POST",
@@ -19,4 +16,4 @@ export const registerSubmitHandler = async function registerSubmitHandle(
     const res = error.response.data;
     return res;
   }
-};
+}
