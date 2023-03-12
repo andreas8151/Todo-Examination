@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { deleteTodo } from "../../functions/deleteTodoHandler";
-import { updateTodo } from "../../functions/updateTodoHandler";
-import { toggleCompletion } from "../../functions/toggleCompletion";
+import { deleteTodo } from "../../todoFunctions/deleteTodoHandler";
+import { updateTodo } from "../../todoFunctions/updateTodoHandler";
+import { toggleCompletion } from "../../todoFunctions/toggleCompletion";
 import TodoInputs from "./todoInputs/TodoInputs";
 import TodoCompletionButton from "./todoCompletionButton/TodoCompletionButton";
 import TodoDeleteButton from "./todoDeleteButton/TodoDeleteButton";
@@ -30,8 +30,8 @@ export default function Todo({ todo, todos, setTodos }) {
     );
     currentTodo.title = title;
     currentTodo.description = description;
-    setTodos(clonedTodos);
   }
+
   async function deleteTodoHandler() {
     await deleteTodo(todo.ID);
     const clonedTodos = [...todos];

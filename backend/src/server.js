@@ -34,8 +34,10 @@ module.exports = pool;
 
 const { authRoutes } = require("./routes/authRoute/authRoute");
 const { todoRoutes } = require("./routes/todoRoute/todoRoute");
+const { friendRoutes } = require("./routes/friendRoute/friendsRoute");
 
 app.use("/auth", authRoutes);
 app.use("/todo", todoRoutes);
+app.use("/friend", friendRoutes);
 
 app.listen(port);

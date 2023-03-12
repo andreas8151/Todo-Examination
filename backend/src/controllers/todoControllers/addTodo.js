@@ -25,8 +25,6 @@ function addTodo(req, res) {
     }
     if (result.affectedRows > 0) {
       res.send("Success");
-    } else {
-      //cookie gått ut??????????
     }
   });
 }

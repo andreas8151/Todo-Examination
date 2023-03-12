@@ -13,6 +13,8 @@ export async function logInSubmitHandler(username, password) {
     const responseText = await data.text();
 
     if (data.status === 200) {
+      localStorage.clear();
+      localStorage.setItem("username", username);
       window.location.href = "/loggedIn";
       return responseText;
     }

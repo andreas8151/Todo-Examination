@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "../input/Input";
+import Input from "../../../components/input/Input";
 import "./todoInput.css";
 
 function TodoInput({ submitCallbackFunction, title, buttonTitle }) {
@@ -18,15 +18,10 @@ function TodoInput({ submitCallbackFunction, title, buttonTitle }) {
           <label>Todo</label>
           <Input
             type="text"
-            value={todoTitle}
             onChange={(event) => setTodoTitle(event.target.value)}
           />
           <label>description</label>
-          <Input
-            type="text"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          />
+          <Input onChange={(event) => setDescription(event.target.value)} />
           <button type="submit" className="button" title="Login">
             {buttonTitle}
           </button>
