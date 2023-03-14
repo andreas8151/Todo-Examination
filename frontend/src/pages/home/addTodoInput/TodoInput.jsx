@@ -12,21 +12,19 @@ function TodoInput({ submitCallbackFunction, title, buttonTitle }) {
 
   return (
     <>
-      <div className="formContainer">
-        <form onSubmit={submitHandler}>
-          <h1>{title}</h1>
-          <label>Todo</label>
-          <Input
-            type="text"
-            onChange={(event) => setTodoTitle(event.target.value)}
-          />
-          <label>description</label>
-          <Input onChange={(event) => setDescription(event.target.value)} />
-          <button type="submit" className="button" title="Login">
-            {buttonTitle}
-          </button>
-        </form>
-      </div>
+      <form className="addTodoInputForm" onSubmit={submitHandler}>
+        <h1>{title}</h1>
+        <label>Todo</label>
+        <Input
+          type="text"
+          onChange={(event) => setTodoTitle(event.target.value)}
+        />
+        <label>description</label>
+        <Input onChange={(event) => setDescription(event.target.value)} />
+        <button type="submit" className="button" title="Login">
+          {buttonTitle}
+        </button>
+      </form>
     </>
   );
 }

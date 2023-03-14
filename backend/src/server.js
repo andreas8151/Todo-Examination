@@ -17,10 +17,11 @@ app.use(
 
 //cookie
 const cookieParser = require("cookie-parser");
-app.use(cookieParser());
 
 //middleware
 app.use(express.json());
+app.use(cookieParser());
+const { checkCookie } = require("./middleware/checkCookie");
 
 const dataBase = {
   host: process.env.host,
@@ -37,7 +38,7 @@ const { todoRoutes } = require("./routes/todoRoute/todoRoute");
 const { friendRoutes } = require("./routes/friendRoute/friendsRoute");
 
 app.use("/auth", authRoutes);
-app.use("/todo", todoRoutes);
-app.use("/friend", friendRoutes);
+app.use("/todo", checkCookie, todoRoutes);
+app.use("/friend", checkCookie, friendRoutes);
 
 app.listen(port);

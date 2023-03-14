@@ -11,6 +11,7 @@ export async function addFriend(friend) {
 
     const responseText = await data.text();
     return responseText;
+    
   } catch (error) {
     const res = error.response.data;
     return res;

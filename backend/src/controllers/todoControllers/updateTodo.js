@@ -3,14 +3,9 @@ const { validateAddTodo } = require("./validation/todoAddValidation");
 
 function updateTodo(req, res) {
   const { error, value } = validateAddTodo(req.body);
-  const userId = req.cookies.user_id;
 
   if (error) {
     res.status(400).send(error.details[0].message);
-    return;
-  }
-  if (!userId) {
-    res.status(400).send("Missing user ID cookie");
     return;
   }
 

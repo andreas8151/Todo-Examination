@@ -1,9 +1,12 @@
 const pool = require("../../server");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const { validateUser } = require("./validation/validation");
+require("dotenv").config();
 
 function login(req, res) {
   const { error, value } = validateUser(req.body);
+  console.log(process.env.JWT_SECRET); //todo
 
   if (error) {
     res.status(400).send(error.details[0].message);
@@ -25,6 +28,9 @@ function login(req, res) {
       const isPasswordMatch = bcrypt.compareSync(password, cryptoPassword);
 
       if (isPasswordMatch) {
+ /*        const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
+          expiresIn: "0.1h",
+        }); */
         res.cookie("user_id", userId, {
           maxAge: 10 * 360000,
           sameSite: "none",
@@ -40,5 +46,13 @@ function login(req, res) {
     }
   });
 }
+console.log(
+  "🚀 ~ file: login.js:49 ~ login ~ process.env.JWT_SECRET:",
+  process.env.JWT_SECRET
+);
+console.log(
+  "🚀 ~ file: login.js:49 ~ login ~   process.env.JWT_SECRET:",
+  process.env.JWT_SECRET
+);
 
 module.exports = { login };

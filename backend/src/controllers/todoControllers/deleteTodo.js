@@ -1,13 +1,8 @@
 const pool = require("../../server");
 
 function deleteTodo(req, res) {
-  const userId = req.cookies.user_id;
   const { ID } = req.body;
 
-  if (!userId) {
-    res.status(400).send("Missing user ID cookie");
-    return;
-  }
   if (!ID) {
     res.status(400).send("Missing ID in request body");
     return;
