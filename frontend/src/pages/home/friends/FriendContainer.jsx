@@ -22,6 +22,7 @@ function AddFriendContainer() {
     getFriends();
   }, []);
 
+  //submit
   async function submitHandler() {
     const res = await addFriend(friend);
     getFriendTodoList(friend);
@@ -30,16 +31,15 @@ function AddFriendContainer() {
       setFriends([...friends, { username: friend }]);
     }
   }
-
+  //get friends todos
   async function getFriendTodoList(friend) {
-    const data = await fetch("http://localhost:5050/friend/getFriendTodos", {
-      credentials: "include", //include cookies
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        friend,
-      }),
-    });
+    const data = await fetch(
+      `http://localhost:5050/friend/getFriendTodos?friend=${friend}`,
+      {
+        credentials: "include", //include cookies
+        method: "GET",
+      }
+    );
     const res = await data.json();
     setFriendTodoList(res);
   }

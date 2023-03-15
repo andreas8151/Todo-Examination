@@ -1,7 +1,7 @@
 const pool = require("../../server");
 
 function getUsersTodos(req, res) {
-  const userId = req.cookies.user_id;
+  const userId = req.userId;
 
   const sql = "SELECT * FROM todos WHERE user_id = ?";
   pool.execute(sql, [userId], (err, result) => {

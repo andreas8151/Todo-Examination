@@ -1,7 +1,7 @@
 const pool = require("../../server");
 function addFriend(req, res) {
   const { friend } = req.body;
-  const userId = req.cookies.user_id;
+  const userId = req.userId;
 
   const friendSql = "SELECT id FROM users WHERE username = ?";
   pool.execute(friendSql, [friend], (err, friendResult) => {

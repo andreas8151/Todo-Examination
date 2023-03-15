@@ -11,6 +11,6 @@ const {
 
 friendRoutes.get("/getFriends", getFriends);
 friendRoutes.post("/addFriend", addFriend);
-friendRoutes.post("/getFriendTodos", getFriendTodos);
+friendRoutes.get("/getFriendTodos", getFriendTodos);
 
 module.exports = { friendRoutes };

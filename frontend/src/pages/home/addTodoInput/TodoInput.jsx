@@ -5,9 +5,15 @@ import "./todoInput.css";
 function TodoInput({ submitCallbackFunction, title, buttonTitle }) {
   const [todoTitle, setTodoTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [responseText, setResponseText] = useState("");
 
-  async function submitHandler() {
-    await submitCallbackFunction(todoTitle, description);
+  async function submitHandler(event) {
+    const res = await submitCallbackFunction(todoTitle, description);
+    setResponseText(res);
+
+    // Clear the input fields
+    setTodoTitle("");
+    setDescription("");
   }
 
   return (
@@ -24,6 +30,7 @@ function TodoInput({ submitCallbackFunction, title, buttonTitle }) {
         <button type="submit" className="button" title="Login">
           {buttonTitle}
         </button>
+        <p>{responseText}</p>
       </form>
     </>
   );

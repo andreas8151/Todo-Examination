@@ -6,7 +6,8 @@ require("dotenv").config();
 
 function login(req, res) {
   const { error, value } = validateUser(req.body);
-  console.log(process.env.JWT_SECRET); //todo
+
+  const { secret } = process.env;
 
   if (error) {
     res.status(400).send(error.details[0].message);
@@ -28,11 +29,10 @@ function login(req, res) {
       const isPasswordMatch = bcrypt.compareSync(password, cryptoPassword);
 
       if (isPasswordMatch) {
- /*        const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
-          expiresIn: "0.1h",
-        }); */
-        res.cookie("user_id", userId, {
-          maxAge: 10 * 360000,
+        const authToken = jwt.sign({ userId }, secret, { expiresIn: "1h" });
+        
+        res.cookie("authToken", authToken, {
+          maxAge: 60 * 60 * 1000, // 1 hour in milliseconds
           sameSite: "none",
           secure: true,
           httpOnly: true,
@@ -46,13 +46,5 @@ function login(req, res) {
     }
   });
 }
-console.log(
-  "🚀 ~ file: login.js:49 ~ login ~ process.env.JWT_SECRET:",
-  process.env.JWT_SECRET
-);
-console.log(
-  "🚀 ~ file: login.js:49 ~ login ~   process.env.JWT_SECRET:",
-  process.env.JWT_SECRET
-);
 
 module.exports = { login };

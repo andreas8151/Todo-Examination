@@ -3,13 +3,12 @@ const { validateAddTodo } = require("./validation/todoAddValidation");
 
 function addTodo(req, res) {
   const { error, value } = validateAddTodo(req.body);
-  const userId = req.cookies.user_id;
+  const userId = req.userId;
 
   if (error) {
     res.status(400).send(error.details[0].message);
     return;
   }
-
 
   const { title, description } = value;
 

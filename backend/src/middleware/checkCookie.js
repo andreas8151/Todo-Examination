@@ -1,11 +1,22 @@
-function checkCookie(req, res, next) {
-  const userId = req.cookies.user_id;
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-  if (!userId) {
-    res.status(400).send("Missing user ID cookie");
+function checkCookie(req, res, next) {
+  const authToken = req.cookies.authToken;
+
+  if (!authToken) {
+    res.status(401).send("Authentication failed: missing token");
     return;
   }
-  next();
+
+  try {
+    const decodedToken = jwt.verify(authToken, process.env.secret);
+    req.userId = decodedToken.userId;
+    next();
+  } catch (err) {
+    res.status(401).send("Authentication failed: invalid token");
+    return;
+  }
 }
 
 module.exports = { checkCookie };
