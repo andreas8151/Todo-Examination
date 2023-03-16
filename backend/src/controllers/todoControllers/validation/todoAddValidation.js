@@ -3,8 +3,8 @@ const joi = require("joi");
 
 // Schema
 const authSchema = joi.object({
-  title: joi.string().min(1).max(30).required(),
-  description: joi.string().min(1).max(30).required(),
+  title: joi.string().min(1).max(22).required(),
+  description: joi.string().min(1).max(22).required(),
 });
 
 // Validation functions

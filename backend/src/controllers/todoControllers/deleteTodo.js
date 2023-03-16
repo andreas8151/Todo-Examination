@@ -4,18 +4,32 @@ function deleteTodo(req, res) {
   const { ID } = req.body;
 
   if (!ID) {
-    res.status(400).send("Missing ID in request body");
+    res.status(400).send("Missing ID");
     return;
   }
 
-  const sql = "DELETE FROM todos WHERE ID = ?";
-  pool.execute(sql, [ID], (err, result) => {
-    if (err) {
-      res.status(500).json({ error: "Error in server: " + err });
+  const checkSql = "SELECT * FROM todos WHERE ID = ?";
+  
+  pool.execute(checkSql, [ID], (checkErr, checkResult) => {
+    if (checkErr) {
+      res.status(500).json({ error: "Error in server: " + checkErr });
       return;
-    } else {
-      res.status(204).send("Deleted Successfully");
     }
+
+    if (checkResult.length === 0) {
+      res.status(404).send("Todo not found");
+      return;
+    }
+
+    const deleteSql = "DELETE FROM todos WHERE ID = ?";
+    pool.execute(deleteSql, [ID], (deleteErr, deleteResult) => {
+      if (deleteErr) {
+        res.status(500).json({ error: "Error in server: " + deleteErr });
+        return;
+      } else {
+        res.status(204).send("Deleted Successfully");
+      }
+    });
   });
 }
 

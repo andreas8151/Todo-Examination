@@ -4,7 +4,7 @@ function todoDone(req, res) {
   const { ID } = req.body;
 
   if (!ID) {
-    res.status(400).send("Missing ID in request body");
+    res.status(400).send("Missing ID");
     return;
   }
 

@@ -12,33 +12,38 @@ export default function Todo({ todo, todos, setTodos }) {
   const [description, setDescription] = useState(todo.description);
 
   async function toggleCompletionHandler() {
-    const res = await toggleCompletion(todo.ID);
+    const resNumber = await toggleCompletion(todo.ID);
+
     const clonedTodos = [...todos];
     const currentTodo = clonedTodos.find(
       (clonedTodo) => clonedTodo.ID === todo.ID
     );
-    currentTodo.completed = res;
+    currentTodo.completed = resNumber;
     setTodos(clonedTodos);
   }
 
-  //TODO
   async function updateTodoHandler() {
-    await updateTodo(todo.ID, title, description);
-    const clonedTodos = [...todos];
-    const currentTodo = clonedTodos.find(
-      (clonedTodo) => clonedTodo.ID === todo.ID
-    );
-    currentTodo.title = title;
-    currentTodo.description = description;
+    const resStatus = await updateTodo(todo.ID, title, description);
+
+    if (resStatus === 200) {
+      const clonedTodos = [...todos];
+      const currentTodo = clonedTodos.find(
+        (clonedTodo) => clonedTodo.ID === todo.ID
+      );
+      currentTodo.title = title;
+      currentTodo.description = description;
+    }
   }
 
   async function deleteTodoHandler() {
-    await deleteTodo(todo.ID);
-    const clonedTodos = [...todos];
-    const updatedTodos = clonedTodos.filter(
-      (clonedTodo) => clonedTodo.ID !== todo.ID
-    );
-    setTodos(updatedTodos);
+    const resStatus = await deleteTodo(todo.ID);
+    if (resStatus === 200) {
+      const clonedTodos = [...todos];
+      const updatedTodos = clonedTodos.filter(
+        (clonedTodo) => clonedTodo.ID !== todo.ID
+      );
+      setTodos(updatedTodos);
+    }
   }
 
   return (

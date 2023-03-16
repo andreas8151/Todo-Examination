@@ -14,13 +14,14 @@ function addTodo(req, res) {
 
   const sql =
     "INSERT INTO todos (user_id, title, description) VALUES (?, ?, ?)";
+
   pool.execute(sql, [userId, title, description], (err, result) => {
     if (err) {
       res.status(500).send("Error in server" + err);
       return;
     }
     if (result.affectedRows > 0) {
-      res.send("Success");
+      res.status(201).send("Success");
     }
   });
 }

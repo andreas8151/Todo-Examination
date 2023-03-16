@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-function checkCookie(req, res, next) {
+function checkIfLoggedIn(req, res) {
   const authToken = req.cookies.authToken;
 
   if (!authToken) {
@@ -12,12 +12,10 @@ function checkCookie(req, res, next) {
   try {
     const decodedToken = jwt.verify(authToken, process.env.secret);
     req.userId = decodedToken.userId;
-    res.status(200);
-    next();
+    res.sendStatus(200);
   } catch (err) {
     res.status(401).send("Authentication failed: invalid token");
     return;
   }
 }
-
-module.exports = { checkCookie };
+module.exports = { checkIfLoggedIn };

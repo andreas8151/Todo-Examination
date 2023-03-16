@@ -5,7 +5,6 @@ export default function TodoContainer() {
   const [todos, setTodos] = useState([]);
 
 
-  // Gets all the lists when component loads.
   useEffect(() => {
     async function getUsersTodos() {
       const data = await fetch("http://localhost:5050/todo/getUsersTodos", {

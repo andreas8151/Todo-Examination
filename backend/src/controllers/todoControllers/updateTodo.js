@@ -13,6 +13,7 @@ function updateTodo(req, res) {
   const { ID } = req.body;
 
   const sql = "UPDATE todos SET title = ?, description = ? WHERE ID = ?";
+  
   pool.execute(sql, [title, description, ID], (err, result) => {
     if (err) {
       res.status(500).json({ error: "Error in server: " + err });

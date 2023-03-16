@@ -4,6 +4,7 @@ function getUsersTodos(req, res) {
   const userId = req.userId;
 
   const sql = "SELECT * FROM todos WHERE user_id = ?";
+
   pool.execute(sql, [userId], (err, result) => {
     if (err) {
       res.status(500).json({ error: "Error in server: " + err });

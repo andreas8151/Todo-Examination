@@ -4,6 +4,7 @@ function addFriend(req, res) {
   const userId = req.userId;
 
   const friendSql = "SELECT id FROM users WHERE username = ?";
+  
   pool.execute(friendSql, [friend], (err, friendResult) => {
     if (err) {
       res.status(500).send("Error, can not add");

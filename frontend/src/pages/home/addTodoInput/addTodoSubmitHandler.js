@@ -12,6 +12,7 @@ export async function addTodoSubmitHandler(title, description) {
 
     const responseText = await data.text();
     return responseText;
+    
   } catch (error) {
     const res = error.response.data;
     return res;

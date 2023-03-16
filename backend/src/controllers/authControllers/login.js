@@ -30,7 +30,7 @@ function login(req, res) {
 
       if (isPasswordMatch) {
         const authToken = jwt.sign({ userId }, secret, { expiresIn: "1h" });
-        
+
         res.cookie("authToken", authToken, {
           maxAge: 60 * 60 * 1000, // 1 hour in milliseconds
           sameSite: "none",

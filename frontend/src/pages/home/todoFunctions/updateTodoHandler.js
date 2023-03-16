@@ -11,8 +11,8 @@ export async function updateTodo(ID, title, description) {
       }),
     });
 
-    const responseText = await data.text();
-    return responseText;
+    const responseStatus = await data.status;
+    return responseStatus;
   } catch (error) {
     const res = error.response.data;
     return res;
