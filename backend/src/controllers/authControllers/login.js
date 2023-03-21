@@ -20,7 +20,7 @@ function login(req, res) {
 
   pool.execute(sql, [username], (err, result) => {
     if (err) {
-      res.status(500).send("Error in server" + err);
+      res.status(500).json({ error: "Error in server: " + err });
       return;
     }
     if (result.length > 0) {
@@ -39,7 +39,7 @@ function login(req, res) {
         });
         res.status(200).send("login success!");
       } else {
-        res.status(404).send("User not found, wrong username or password");
+        res.status(401).send("Invalid login credentials");
       }
     } else {
       res.status(404).send("User not found");

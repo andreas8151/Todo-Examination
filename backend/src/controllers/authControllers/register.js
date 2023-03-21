@@ -17,7 +17,7 @@ function register(req, res) {
 
   pool.execute(sql, [username, cryptoPassword], (err, result) => {
     if (err) {
-      res.status(500).send("Error in server" + err);
+      res.status(500).json({ error: "Error in server: " + err });
       return;
     }
     res.status(201).send("register success");

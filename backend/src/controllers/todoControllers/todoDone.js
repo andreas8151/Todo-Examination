@@ -3,8 +3,8 @@ const pool = require("../../server");
 function todoDone(req, res) {
   const { ID } = req.body;
 
-  if (!ID) {
-    res.status(400).send("Missing ID");
+  if (!ID || isNaN(ID)) {
+    res.status(400).send("Missing/Invalid ID");
     return;
   }
 

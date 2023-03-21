@@ -37,7 +37,7 @@ export default function Todo({ todo, todos, setTodos }) {
 
   async function deleteTodoHandler() {
     const resStatus = await deleteTodo(todo.ID);
-    if (resStatus === 200) {
+    if (resStatus === 204) {
       const clonedTodos = [...todos];
       const updatedTodos = clonedTodos.filter(
         (clonedTodo) => clonedTodo.ID !== todo.ID

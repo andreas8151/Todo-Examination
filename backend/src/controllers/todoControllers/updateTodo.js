@@ -12,8 +12,13 @@ function updateTodo(req, res) {
   const { title, description } = value;
   const { ID } = req.body;
 
+  if (!ID || isNaN(ID)) {
+    res.status(400).send("Missing/Invalid ID");
+    return;
+  }
+
   const sql = "UPDATE todos SET title = ?, description = ? WHERE ID = ?";
-  
+
   pool.execute(sql, [title, description, ID], (err, result) => {
     if (err) {
       res.status(500).json({ error: "Error in server: " + err });
