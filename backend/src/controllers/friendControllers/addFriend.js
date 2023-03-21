@@ -3,6 +3,11 @@ function addFriend(req, res) {
   const { friend } = req.body;
   const userId = req.userId;
 
+  if (!friend) {
+    res.status(400).json({ error: "Friend parameter is required." });
+    return;
+  }
+
   const friendSql = "SELECT id FROM users WHERE username = ?";
 
   pool.execute(friendSql, [friend], (err, friendResult) => {
