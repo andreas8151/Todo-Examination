@@ -7,7 +7,7 @@ function getFriends(req, res) {
 
   pool.execute(friendSql, [userId], (err, friendResult) => {
     if (err) {
-      res.status(500).json({ error: "Error in server: " + err });
+      res.status(500).send({ error: "Error in server: " + err });
       return;
     }
     if (friendResult.length === 0) {

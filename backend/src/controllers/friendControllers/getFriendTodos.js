@@ -4,7 +4,7 @@ function getFriendTodos(req, res) {
   const { friend } = req.query;
 
   if (!friend) {
-    res.status(400).json({ error: "Friend parameter is required." });
+    res.status(400).send("Friend parameter is required.");
     return;
   }
 

@@ -4,7 +4,7 @@ function addFriend(req, res) {
   const userId = req.userId;
 
   if (!friend) {
-    res.status(400).json({ error: "Friend parameter is required." });
+    res.status(400).send("Friend parameter is required.");
     return;
   }
 

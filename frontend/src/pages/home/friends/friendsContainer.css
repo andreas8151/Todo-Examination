@@ -64,3 +64,9 @@
   color: aliceblue;
   text-decoration: line-through;
 }
+
+@media screen and (max-width: 600px) {
+  .friendsContainer {
+    margin-left: 0;
+  }
+}
