@@ -61,3 +61,8 @@ Technologies Used
 * jsonwebtoken
 * mysql2
 * nodemon
+
+future plans
+
+* Reminder Notifications: I'd like to add a notification system that reminds users of upcoming to-do items. This feature could be customizable, so users can choose when and how they receive notifications.
+* Collaborative To-Do Lists: I think it would be helpful to allow users to create and collaborate on to-do lists with their friends. This could involve assigning tasks to specific users, setting deadlines, and tracking progress.
