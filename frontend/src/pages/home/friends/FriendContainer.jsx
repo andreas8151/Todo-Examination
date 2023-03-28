@@ -25,23 +25,10 @@ function AddFriendContainer() {
   //submit
   async function submitHandler() {
     const res = await addFriend(friend);
-    getFriendTodoList(friend);
     setResText(res);
     if (res == "Friend Added") {
       setFriends([...friends, { username: friend }]);
     }
-  }
-  //get friends todos
-  async function getFriendTodoList(friend) {
-    const data = await fetch(
-      `http://localhost:5050/friend/getFriendTodos?friend=${friend}`,
-      {
-        credentials: "include", //include cookies
-        method: "GET",
-      }
-    );
-    const res = await data.json();
-    setFriendTodoList(res);
   }
 
   return (
@@ -51,18 +38,6 @@ function AddFriendContainer() {
         <input onChange={(event) => setFriend(event.target.value)} />
         <button onClick={submitHandler}>Add Friend</button>
         <p>{resText}</p>
-        <div className="friendList">
-          {friends.map((friend, index) => {
-            return (
-              <button
-                key={index}
-                onClick={() => getFriendTodoList(friend.username)}
-              >
-                {friend.username}
-              </button>
-            );
-          })}
-        </div>
       </div>
       {friendTodoList.map((todo, index) => {
         return (
