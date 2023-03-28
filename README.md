@@ -37,16 +37,14 @@ This is a web application for managing personal to-do lists, built using a full-
 * Friends are stored in the SQL database as a separate table
 
 ##Technologies Used
-backend
-React.js
-React-Router-DOM
-Express.js
-Node.js
-   bcrypt
-    cookie-parser
-    cors
-    dotenv
-    joi
-    jsonwebtoken
-    mysql2
-    nodemon
+
+* React.js
+* React-Router-DOM
+* Express.js
+* Node.js
+* bcrypt
+* dotenv
+* joi
+* jsonwebtoken
+* mysql2
+* nodemon
