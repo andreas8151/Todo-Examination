@@ -1,13 +1,13 @@
 # Todo-Examination
 This is a web application for managing personal to-do lists, built using a full-stack architecture with Express.js for the backend and React.js for the frontend. It allows users to create, update, and delete their to-dos, as well as add friends, see their friends' to-dos, and login and register with secure token and cookie-based authentication. The application uses an SQL database for storing user data and to-do lists.
 
-##Requirements
+Requirements
 
 * Node.js
 * NPM
 * SQL Database
 
-##Installation
+Installation
 
 * Clone the repository to your local machine
 * Navigate to the backend directory of the project in the command line
@@ -20,23 +20,23 @@ This is a web application for managing personal to-do lists, built using a full-
 * Navigate to frontend and run, npm run start
 ##Features
 
-##Authentication
+Authentication
 * Login and registration pages with secure token and cookie-based authentication
 * Passwords are encrypted using bcrypt.js
 * stored in SQL databse
 
-##To-Do List
+To-Do List
 * Users can create, edit, and delete their to-dos.
 * To-dos can be marked as complete or incomplete
 * Users can view their to-dos and their friends' to-dos
 * To-dos are stored in the SQL database
 
-##Friends
+Friends
 * Users can add friends by their username
 * Users can view their friends' to-dos
 * Friends are stored in the SQL database as a separate table
 
-##Technologies Used
+Technologies Used
 
 * React.js
 * React-Router-DOM
