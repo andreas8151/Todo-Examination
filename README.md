@@ -20,11 +20,11 @@ Installation
 .env file contains
 --------------
 host = "localhost"
-user= "andreas"
-password= "password"
-database= "examination"
+user= ""
+password= ""
+database= ""
 
-secret = eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY3OTMxNzg2MywiaWF0IjoxNjc5MzE3ODYzfQ.xZVCoIVI6oKWktoSrjyYpdMTsp4b3_HsNyRSH7JpE_8
+secret = ""
 ---------------
 
 * Navigate to backend/src and run ,nodemon server.js
