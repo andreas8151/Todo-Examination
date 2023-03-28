@@ -14,8 +14,19 @@ Installation
 * Run npm install to install all the required dependencies
 * Navigate to the frontend directory in the command line
 * Run npm install again to install the frontend dependencies
-* Return to the root directory and create a new file called .env
+* Return to the backend/src and create a new file called .env
 * Copy the contents of .env.example into the new .env file and replace the values with your own configurations (i.e., database credentials, JWT secret, etc.)
+
+.env file contains
+--------------
+host = "localhost"
+user= "andreas"
+password= "password"
+database= "examination"
+
+secret = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY3OTMxNzg2MywiaWF0IjoxNjc5MzE3ODYzfQ.xZVCoIVI6oKWktoSrjyYpdMTsp4b3_HsNyRSH7JpE_8"
+---------------
+
 * Navigate to backend/src and run ,nodemon server.js
 * Navigate to frontend and run, npm run start
 
