@@ -14,6 +14,11 @@ app.use(
     credentials: true,
   })
 );
+const path = require("path");
+const imagesDirectory = path.join(__dirname, "../src/images");
+
+// Serve the images directory as a static directory
+app.use("/images", express.static(imagesDirectory));
 
 //cookie
 const cookieParser = require("cookie-parser");
@@ -21,6 +26,7 @@ const cookieParser = require("cookie-parser");
 //middleware
 app.use(express.json());
 app.use(cookieParser());
+
 const { checkCookie } = require("./middleware/checkCookie");
 
 const dataBase = {
@@ -34,11 +40,11 @@ const pool = mysql.createPool(dataBase);
 module.exports = pool;
 
 const { authRoutes } = require("./routes/authRoute/authRoute");
-const { todoRoutes } = require("./routes/todoRoute/todoRoute");
 const { friendRoutes } = require("./routes/friendRoute/friendsRoute");
+const { contentRoute } = require("./routes/contentRoute/contentRoute");
 
 app.use("/auth", authRoutes);
-app.use("/todo", checkCookie, todoRoutes);
 app.use("/friend", checkCookie, friendRoutes);
+app.use("/content", checkCookie, contentRoute);
 
 app.listen(port);
