@@ -18,7 +18,9 @@ Installation
 * Copy the contents of .env.example into the new .env file and replace the values with your own configurations (i.e., database credentials, JWT secret, etc.)
 * Navigate to backend/src and run ,nodemon server.js
 * Navigate to frontend and run, npm run start
-##Features
+
+
+Features
 
 Authentication
 * Login and registration pages with secure token and cookie-based authentication
